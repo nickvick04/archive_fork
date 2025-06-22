@@ -1,0 +1,58 @@
+{
+    "title": "Scoreboard Schema",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "contest": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "division": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["name", "division"]
+        },
+        "teams": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rank": { "type": "integer" },
+              "teamName": { "type": "string" },
+              "solved": { "type": "integer" },
+              "time": { "type": "integer" },
+              "problem": {
+                "type": "object",
+                "properties": {
+                  "A": { "$ref": "#/$defs/problem" },
+                  "B": { "$ref": "#/$defs/problem" },
+                  "C": { "$ref": "#/$defs/problem" },
+                  "D": { "$ref": "#/$defs/problem" },
+                  "E": { "$ref": "#/$defs/problem" },
+                  "F": { "$ref": "#/$defs/problem" },
+                  "G": { "$ref": "#/$defs/problem" },
+                  "H": { "$ref": "#/$defs/problem" },
+                  "I": { "$ref": "#/$defs/problem" },
+                  "J": { "$ref": "#/$defs/problem" },
+                  "K": { "$ref": "#/$defs/problem" },
+                  "L": { "$ref": "#/$defs/problem" },
+                  "M": { "$ref": "#/$defs/problem" }
+                }
+              }
+            },
+            "required": ["rank", "teamName", "solved", "time", "problem"]
+          }
+        }
+      }
+    },
+    "$defs": {
+      "problem": {
+        "type": "object",
+        "properties": {
+          "attempts": { "type": "integer" },
+          "solvedTime": { "type": ["integer", "null"] }
+        },
+        "required": ["attempts"]
+      }
+    }
+  }
