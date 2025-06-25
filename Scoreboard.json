@@ -1,58 +1,43 @@
 {
-    "title": "Scoreboard Schema",
-    "type": "array",
-    "items": {
-      "type": "object",
-      "properties": {
-        "contest": {
-          "type": "object",
-          "properties": {
-            "name": { "type": "string" },
-            "division": { "type": "array", "items": { "type": "string" } }
-          },
-          "required": ["name", "division"]
+  "type": "object", 
+  "title": "2015 Scoreboard Results",
+  "time": "2014-06-25T14:13:07.832+01",
+  "contest_time": "4:13:07.832",
+  "state": {
+    "started": "2014-06-25T10:00:00+01",
+    "ended": null,
+    "frozen": "2014-06-25T14:00:00+01",
+    "thawed": null,
+    "finalized": null,
+    "end_of_updates": null
+  },
+  "rows": [
+    {
+      "rows": "1",
+      "team_id": "5 Carnegie Mellon University",
+      "score": 
+        {
+          "num_solved": "10",
+          "total_time": "1217",
+          "time": "null"
         },
-        "teams": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "rank": { "type": "integer" },
-              "teamName": { "type": "string" },
-              "solved": { "type": "integer" },
-              "time": { "type": "integer" },
-              "problem": {
-                "type": "object",
-                "properties": {
-                  "A": { "$ref": "#/$defs/problem" },
-                  "B": { "$ref": "#/$defs/problem" },
-                  "C": { "$ref": "#/$defs/problem" },
-                  "D": { "$ref": "#/$defs/problem" },
-                  "E": { "$ref": "#/$defs/problem" },
-                  "F": { "$ref": "#/$defs/problem" },
-                  "G": { "$ref": "#/$defs/problem" },
-                  "H": { "$ref": "#/$defs/problem" },
-                  "I": { "$ref": "#/$defs/problem" },
-                  "J": { "$ref": "#/$defs/problem" },
-                  "K": { "$ref": "#/$defs/problem" },
-                  "L": { "$ref": "#/$defs/problem" },
-                  "M": { "$ref": "#/$defs/problem" }
-                }
-              }
-            },
-            "required": ["rank", "teamName", "solved", "time", "problem"]
-          }
-        }
-      }
-    },
-    "$defs": {
-      "problem": {
-        "type": "object",
-        "properties": {
-          "attempts": { "type": "integer" },
-          "solvedTime": { "type": ["integer", "null"] }
-        },
-        "required": ["attempts"]
-      }
+      "problems": [
+        {"problem_id": "A", "num_judged": "1", "num_pending": "0", "solved": "True", "time": "88"},
+        {"problem_id": "B", "num_judged": "1", "num_pending": "0", "solved": "True", "time": "76"},
+        {"problem_id": "C", "num_judged": "1", "num_pending": "0", "solved": "False"},
+        {"problem_id": "D", "num_judged": "1", "num_pending": "0", "solved": "True", "time": "38"},
+        {"problem_id": "E", "num_judged": "1", "num_pending": "0", "solved": "True", "time": "82"},
+        {"problem_id": "F", "num_judged": "4", "num_pending": "0", "solved": "True", "time": "159"},
+        {"problem_id": "G", "num_judged": "0", "num_pending": "0", "solved": "False"},
+        {"problem_id": "H", "num_judged": "1", "num_pending": "0", "solved": "True", "time": "96"},
+        {"problem_id": "I", "num_judged": "2", "num_pending": "0", "solved": "True", "time": "159"},
+        {"problem_id": "J", "num_judged": "0", "num_pending": "0", "solved": "False"},
+        {"problem_id": "K", "num_judged": "1", "num_pending": "0", "solved": "True", "time": "34"},
+        {"problem_id": "L", "num_judged": "5", "num_pending": "0", "solved": "True", "time": "52"},
+        {"problem_id": "M", "num_judged": "1", "num_pending": "0", "solved": "True", "time": "173"}
+
+        
+      ]
     }
-  }
+  ]
+}
