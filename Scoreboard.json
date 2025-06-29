@@ -13,8 +13,8 @@
   },
   "rows": [
     {
-      "rows": "1",
-      "team_id": "5 Carnegie Mellon University",
+      "rank": "1",
+      "team_id": "",
       "score": 
         {
           "num_solved": "10",
