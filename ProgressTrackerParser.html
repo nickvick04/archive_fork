@@ -50,4 +50,46 @@
     </div>
     <div id="progressTracker"></div>
   </div>
-<body>
+
+  <script>
+    let contestList = {};
+    let contestStatus = [];
+    const errorContainer = document.getElementById('errorContainer');
+
+    // Fetch ContestList.tsv
+    fetch('ContestList.tsv')
+      // Throw error if file not found
+      .then(response => {
+        if (!response.ok) throw new Error('ContestList.tsv not found');
+        return response.text();
+      })
+      // Parse the contents
+      .then(text => {
+        // Remove leading/trailing new lines, separate lines, split lines into fields based on tabs
+        const rows = text.trim().split('\n').map(row => row.split('\t'));
+        
+        // Extract headers and data
+        const headers = rows[0];
+        // Skip first row, loop over all rows
+        const data = rows.slice(1).map(row => {
+          // Create object for each row, with headers as keys and row values as values
+          const obj = {};
+          headers.forEach((header, index) => obj[header] = row[index]);
+          return obj;
+        });
+
+        // Combine the objects
+        contestList = data.reduce((combined, item) => {
+          combined[item['short-name']] = { fullName: item['full-name'], region: item['region-name'] };
+          return combined;
+        }, {});
+        console.log('Contest List:', contestList);
+        loadStatusFile();
+      })
+      .catch(error => {
+        errorContainer.textContent = `Error loading ContestList.tsv: ${error.message}`;
+      });
+
+    </script>
+</body>
+</html>
